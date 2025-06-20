@@ -1,0 +1,6 @@
+/coverage.*
+*.test
+*.out
+.idea
+.vscode
+node_modules
