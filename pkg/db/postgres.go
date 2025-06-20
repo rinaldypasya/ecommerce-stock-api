@@ -1,9 +1,9 @@
 package db
 
 import (
+	"ecommerce-stock-api/config"
 	"fmt"
 	"log"
-	"os"
 	"time"
 
 	"gorm.io/driver/postgres"
@@ -13,7 +13,7 @@ import (
 
 // ConnectPostgres initializes the GORM PostgreSQL connection
 func ConnectPostgres() *gorm.DB {
-	dsn := os.Getenv("DB_DSN")
+	dsn := config.AppConfig.DBDSN
 	if dsn == "" {
 		// fallback default if no environment variable set
 		dsn = "host=localhost user=postgres password=postgres dbname=ecommerce port=5432 sslmode=disable TimeZone=Asia/Jakarta"

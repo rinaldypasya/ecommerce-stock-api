@@ -1,15 +1,15 @@
 package auth
 
 import (
+	"ecommerce-stock-api/config"
 	"errors"
-	"os"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
 )
 
 func getJWTSecret() ([]byte, error) {
-	secret := os.Getenv("JWT_SECRET")
+	secret := config.AppConfig.JWTSecret
 	if secret == "" {
 		return nil, errors.New("JWT_SECRET environment variable not set")
 	}
